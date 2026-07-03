@@ -1,0 +1,6 @@
+{
+  "name": "ProStates",
+  "description": "ProStates Ltd - A premium, design-first global vacation rental and luxury stays marketplace.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
