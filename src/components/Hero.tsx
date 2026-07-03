@@ -4,7 +4,7 @@ import { Search, MapPin, Calendar, Users, Star, ShieldCheck, HeartHandshake, Hea
 import { motion } from 'motion/react';
 
 export default function Hero() {
-  const { searchCriteria, setSearchCriteria, setCurrentPage } = useApp();
+  const { searchCriteria, setSearchCriteria, setCurrentPage, t } = useApp();
   const [destination, setDestination] = useState(searchCriteria.destination);
   const [guests, setGuests] = useState(searchCriteria.guestsCount);
   const [checkIn, setCheckIn] = useState('');
@@ -127,14 +127,14 @@ export default function Hero() {
                   <div className="relative bg-gray-950/60 rounded-2xl p-3.5 border border-gray-800/50 hover:border-blue-500/30 transition-all">
                     <label className="flex items-center gap-2 text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">
                       <MapPin className="w-3.5 h-3.5 text-blue-400" />
-                      Destination
+                      {t("Destinations")}
                     </label>
                     <input
                       id="hero-destination-input"
                       type="text"
                       value={destination}
                       onChange={(e) => setDestination(e.target.value)}
-                      placeholder="Where are you going?"
+                      placeholder={t("Where would you like to go?")}
                       className="w-full text-white font-medium text-sm outline-none bg-transparent placeholder-gray-500"
                     />
                   </div>
@@ -143,18 +143,18 @@ export default function Hero() {
                   <div className="relative bg-gray-950/60 rounded-2xl p-3.5 border border-gray-800/50 hover:border-blue-500/30 transition-all">
                     <label className="flex items-center gap-2 text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">
                       <Users className="w-3.5 h-3.5 text-blue-400" />
-                      Guests
+                      {t("Guests")}
                     </label>
                     <select
                       value={guests}
                       onChange={(e) => setGuests(Number(e.target.value))}
                       className="w-full text-white font-medium text-sm outline-none bg-transparent cursor-pointer"
                     >
-                      <option className="bg-gray-900 text-white" value={1}>1 Guest</option>
-                      <option className="bg-gray-900 text-white" value={2}>2 Guests</option>
-                      <option className="bg-gray-900 text-white" value={3}>3 Guests</option>
-                      <option className="bg-gray-900 text-white" value={4}>4 Guests</option>
-                      <option className="bg-gray-900 text-white" value={6}>5+ Guests (Family Suite)</option>
+                      <option className="bg-gray-900 text-white" value={1}>1 {t("Guest")}</option>
+                      <option className="bg-gray-900 text-white" value={2}>2 {t("Guests")}</option>
+                      <option className="bg-gray-900 text-white" value={3}>3 {t("Guests")}</option>
+                      <option className="bg-gray-900 text-white" value={4}>4 {t("Guests")}</option>
+                      <option className="bg-gray-900 text-white" value={6}>5+ {t("Guests")}</option>
                     </select>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ export default function Hero() {
                   <div className="relative bg-gray-950/60 rounded-2xl p-3.5 border border-gray-800/50 hover:border-blue-500/30 transition-all">
                     <label className="flex items-center gap-2 text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">
                       <Calendar className="w-3.5 h-3.5 text-blue-400" />
-                      Check In
+                      {t("Check-In")}
                     </label>
                     <input
                       type="date"
@@ -178,7 +178,7 @@ export default function Hero() {
                   <div className="relative bg-gray-950/60 rounded-2xl p-3.5 border border-gray-800/50 hover:border-blue-500/30 transition-all">
                     <label className="flex items-center gap-2 text-gray-400 text-xs font-semibold uppercase tracking-wider mb-1">
                       <Calendar className="w-3.5 h-3.5 text-blue-400" />
-                      Check Out
+                      {t("Check-Out")}
                     </label>
                     <input
                       type="date"
@@ -195,7 +195,7 @@ export default function Hero() {
                   className="w-full py-4 px-6 bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white rounded-2xl font-bold text-sm tracking-wide shadow-lg shadow-blue-500/10 hover:scale-[1.01] hover:shadow-blue-500/20 active:scale-[0.99] transition-all flex items-center justify-center gap-2 cursor-pointer mt-1"
                 >
                   <Search className="w-4 h-4" />
-                  <span>Search Premium Stays</span>
+                  <span>{t("Search Stays")}</span>
                 </button>
               </form>
             </motion.div>

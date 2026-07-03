@@ -3,7 +3,7 @@ import { useApp } from '../context/AppContext';
 import { Mail, Compass, ShieldCheck, Globe, Instagram, Facebook, ArrowRight, HelpCircle } from 'lucide-react';
 
 export default function Footer() {
-  const { setCurrentPage, selectedCurrency, selectedLanguage } = useApp();
+  const { setCurrentPage, selectedCurrency, selectedLanguage, t } = useApp();
   const [emailValue, setEmailValue] = useState('');
   const [newsSuccess, setNewsSuccess] = useState(false);
 
@@ -43,38 +43,38 @@ export default function Footer() {
 
           {/* Links col 1 */}
           <div className="lg:col-span-2 space-y-3.5">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Company</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">{t("Company")}</h4>
             <ul className="space-y-2 text-xs text-gray-400">
-              <li><button onClick={() => setCurrentPage('home')} className="hover:text-white transition-colors cursor-pointer">About Stays</button></li>
-              <li><button className="hover:text-white transition-colors cursor-not-allowed">Premium Careers</button></li>
-              <li><button className="hover:text-white transition-colors cursor-not-allowed">Investor Relations</button></li>
-              <li><button className="hover:text-white transition-colors cursor-not-allowed">Curation Pressroom</button></li>
+              <li><button onClick={() => setCurrentPage('home')} className="hover:text-white transition-colors cursor-pointer">{t("About Stays")}</button></li>
+              <li><button className="hover:text-white transition-colors cursor-not-allowed">{t("Premium Careers")}</button></li>
+              <li><button className="hover:text-white transition-colors cursor-not-allowed">{t("Investor Relations")}</button></li>
+              <li><button className="hover:text-white transition-colors cursor-not-allowed">{t("Curation Pressroom")}</button></li>
             </ul>
           </div>
 
           {/* Links col 2 */}
           <div className="lg:col-span-2 space-y-3.5">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">Co-Hosting</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">{t("Co-Hosting")}</h4>
             <ul className="space-y-2 text-xs text-gray-400">
-              <li><button onClick={() => setCurrentPage('auth')} className="hover:text-white transition-colors cursor-pointer">Become a Host</button></li>
-              <li><button className="hover:text-white transition-colors cursor-not-allowed">Listing Checklists</button></li>
-              <li><button className="hover:text-white transition-colors cursor-not-allowed">Host Insurance Coverage</button></li>
-              <li><button className="hover:text-white transition-colors cursor-not-allowed">Community Forum</button></li>
+              <li><button onClick={() => setCurrentPage('auth')} className="hover:text-white transition-colors cursor-pointer">{t("Become a Host")}</button></li>
+              <li><button className="hover:text-white transition-colors cursor-not-allowed">{t("Listing Checklists")}</button></li>
+              <li><button className="hover:text-white transition-colors cursor-not-allowed">{t("Host Insurance Coverage")}</button></li>
+              <li><button className="hover:text-white transition-colors cursor-not-allowed">{t("Community Forum")}</button></li>
             </ul>
           </div>
 
           {/* Links col 3 */}
           <div className="lg:col-span-4 space-y-3.5">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-white">ProNewsletter</h4>
+            <h4 className="text-xs font-bold uppercase tracking-wider text-white">{t("ProNewsletter")}</h4>
             <p className="text-xs text-gray-400 leading-relaxed">
-              Sign up for elite travel newsletters, luxury collections launches, and exclusive early access coupons.
+              {t("Sign up for elite travel newsletters, luxury collections launches, and exclusive early access coupons.")}
             </p>
             <form onSubmit={handleNewsletter} className="flex gap-2">
               <div className="relative flex-1">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-slate-500" />
                 <input
                   type="email"
-                  placeholder="Your premium email"
+                  placeholder={t("Your premium email")}
                   value={emailValue}
                   onChange={(e) => setEmailValue(e.target.value)}
                   className="w-full bg-slate-800 border border-slate-700 rounded-xl pl-9 pr-3 py-2 text-xs text-white placeholder-slate-500 outline-none focus:border-blue-500"
@@ -98,10 +98,10 @@ export default function Footer() {
           </div>
 
           <div className="flex flex-wrap items-center gap-4.5">
-            <span className="hover:text-white transition-colors cursor-pointer">Privacy Charter</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Terms of Service</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Cookies Directive</span>
-            <span className="hover:text-white transition-colors cursor-pointer">Accessibility Statement</span>
+            <span className="hover:text-white transition-colors cursor-pointer">{t("Privacy Charter")}</span>
+            <span className="hover:text-white transition-colors cursor-pointer">{t("Terms of Service")}</span>
+            <span className="hover:text-white transition-colors cursor-pointer">{t("Cookies Directive")}</span>
+            <span className="hover:text-white transition-colors cursor-pointer">{t("Accessibility Statement")}</span>
 
             <div className="flex items-center gap-1.5 text-gray-400 bg-slate-800 px-2.5 py-1 rounded-md">
               <Globe className="w-3.5 h-3.5" />
